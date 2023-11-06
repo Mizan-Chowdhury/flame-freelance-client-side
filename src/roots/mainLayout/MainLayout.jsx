@@ -57,7 +57,7 @@ const MainLayout = ({ children }) => {
             <label
               htmlFor="my-drawer-3"
               aria-label="open sidebar"
-              className="btn btn-square btn-ghost"
+              className="btn btn-square btn-ghost text-slate-500"
             >
               <svg
                 xmlns=""
@@ -99,7 +99,7 @@ const MainLayout = ({ children }) => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200">
+        <ul className="menu p-4 w-80 min-h-full text-white bg-[#0b1126]">
           {/* Sidebar content here */}
           {navList}
         </ul>

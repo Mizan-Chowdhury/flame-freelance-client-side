@@ -1,3 +1,5 @@
+import useAxios from "../../hooks/useAxios";
+
 const AddJobs = () => {
     const handleJobSubmit = (e) =>{
         e.preventDefault();
@@ -14,6 +16,8 @@ const AddJobs = () => {
             description: form.description.value
         }
         console.log(newJob);
+
+        const axios = useAxios;
 
     }
   return (

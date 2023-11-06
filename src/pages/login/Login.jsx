@@ -1,20 +1,51 @@
 import { Link } from "react-router-dom";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const Login = () => {
+  const {googleSingIn, signInUser} = useAuthContext();
+
+
+
+
+
+  const handleForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+  };
+
+  const handleGoogleLogin = () => {
+    googleSingIn()
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  };
   return (
-    <div className="min-h-screen py-20 lg:py-">
-      <div className="flex flex-col lg:flex-row-reverse">
+    <div className="flex items-center min-h-screen py-16 px-4 lg:px-32">
+      <div className="flex flex-col lg:flex-row items-center lg:gap-32">
         <div className="text-center lg:text-left flex-1">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold">
+            Welcome to <span className="banner-title">Flame Freelance</span>{" "}
+            Portal
+          </h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Unlock a world of opportunities! Log in to your Flame Freelance
+            account to ignite your freelance journey. Access exclusive projects,
+            connect with clients, and blaze a trail to success in the world of
+            freelancing. Your next big opportunity awaits behind the login.
           </p>
         </div>
-        <div className="rounded-xl flex-1 shadow-xl w-full max-w-sm bg-white bg-opacity-10  border border-opacity-30 border-r-0 border-b-0 backdrop-filter backdrop-blur-sm relative z-2">
-          <form className="card-body flex flex-col justify-evenly ">
-            <h1 className="text-center text-2xl font-bold">Login Now</h1>
+        <div className="rounded-xl w-full lg:max-w-lg flex-1 shadow-xl bg-white bg-opacity-10  border border-opacity-30 border-r-0 border-b-0 backdrop-filter backdrop-blur-sm relative z-2 p-10">
+          <form onSubmit={handleForm} className="flex flex-col justify-evenly ">
+            <h1 className="text-center text-4xl font-bold banner-title">
+              Login Now
+            </h1>
             <div className="form-control my-8">
               <input
                 name="email"
@@ -33,12 +64,6 @@ const Login = () => {
                 required
               />
             </div>
-            <p>
-              Did not have a account? please{" "}
-              <Link to={"/register"} className="underline font-semibold">
-                Register
-              </Link>
-            </p>
             <div className="form-control mt-6">
               <input
                 className="btn glass text-black rounded-full w-full"
@@ -47,14 +72,21 @@ const Login = () => {
               />
             </div>
             <p className="text-center">or </p>
-            <div className="form-control">
-              <input
-                className="btn glass text-black w-full rounded-full"
-                type="submit"
-                value="Login With Google"
-              />
-            </div>
           </form>
+          <div className="form-control">
+            <input
+              onClick={handleGoogleLogin}
+              className="btn glass text-black w-full rounded-full"
+              type="submit"
+              value="Login With Google"
+            />
+          </div>
+          <p className="text-center mt-4">
+            Did not have a account? please{" "}
+            <Link to={"/register"} className="underline font-semibold">
+              Register
+            </Link>
+          </p>
         </div>
       </div>
     </div>
