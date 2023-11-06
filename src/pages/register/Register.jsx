@@ -2,12 +2,32 @@ import { Link } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 
 const Register = () => {
-  const {createUser} = useAuthContext();
+  const { createUser, updateUser } = useAuthContext();
 
+  const handleForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
-
-
-  const handleForm = (e) => {};
+    createUser(email, password)
+      .then((res) => {
+        console.log(res);
+        updateUser(name, photo)
+          .then((res) => {
+            console.log(res);
+            form.reset();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="flex items-center min-h-screen py-16 px-4 lg:px-32">
       <div className="flex flex-col lg:flex-row items-center lg:gap-32">
@@ -34,9 +54,9 @@ const Register = () => {
             </h1>
             <div className="form-control">
               <input
-                name="name"
-                type="name"
-                placeholder="Full name"
+                name="photo"
+                type="text"
+                placeholder="Photo Url"
                 className=" bg-transparent focus:outline-none border-b-2 pb-1 text-white"
                 required
               />
@@ -44,7 +64,7 @@ const Register = () => {
             <div className="form-control">
               <input
                 name="name"
-                type="name"
+                type="text"
                 placeholder="Full name"
                 className=" bg-transparent focus:outline-none border-b-2 pb-1 text-white"
                 required
