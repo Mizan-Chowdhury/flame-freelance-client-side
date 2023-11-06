@@ -2,9 +2,9 @@ const Banner = () => {
   return (
     <div className="lg:px-16 flex items-center min-h-screen py-20 md:py-0">
       <div className="flex items-center flex-col lg:flex-row-reverse justify-between gap-20">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl leading-[60px]">
-            <span className="banner-title font-bold text-6xl">
+        <div className="text-center lg:text-left px-2 md:px-0">
+          <h1 className="text-3xl md:text-5xl leading-[70px]">
+            <span className="banner-title font-bold text-4xl md:text-6xl">
               Flame Frelance Hub
             </span>{" "}
             : Your Gateway To Digital Talent and Opportunities

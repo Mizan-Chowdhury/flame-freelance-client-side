@@ -37,3 +37,7 @@ p {
   background-clip: text;
   color: transparent;
 }
+
+Tab{
+  font-style: lowercase;
+}
