@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #14141f !important;
+}
+
+h1,
+h2 {
+  color: #fff;
+  font-weight: 500;
+}
+
+.active {
+  color: #e250e5;
+  border-bottom: solid 4px #4b50e6;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 85%;
+  line-height: 35px;
+}
+
+.logo {
+  background: linear-gradient(-45deg, #e250e5, #4b50e6, #e250e5, #4b50e6);
+  background-clip: text;
+  background-size: 100% 100%;
+  -webkit-text-stroke: 2px transparent;
+  -webkit-text-fill-color: #14141f;
+}
+.banner-title {
+  background: linear-gradient(-45deg, #e250e5, #4b50e6, #e250e5, #4b50e6);
+  background-clip: text;
+  color: transparent;
+}
