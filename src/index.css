@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #14141f !important;
+  background-color: #03091f !important;
 }
 
 h1,
@@ -38,6 +38,6 @@ p {
   color: transparent;
 }
 
-Tab{
+Tab {
   font-style: lowercase;
 }

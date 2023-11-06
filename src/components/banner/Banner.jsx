@@ -13,7 +13,7 @@ const Banner = () => {
             Connect, Collaborate, and Conquer with Flame Freelance Hub, Where
             Passionate Freelancers and Exciting Opportunities Converge.
           </p>
-          <button className="btn p-4 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          <button className="btn border-none p-4 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             Get Started Now
           </button>
         </div>
