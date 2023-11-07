@@ -17,6 +17,12 @@ h2 {
   border-bottom: solid 4px #4b50e6;
 }
 
+.active-tabs{
+  border-bottom: solid 3px #e250e5;
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
 p {
   font-weight: 400;
   font-size: 1rem;

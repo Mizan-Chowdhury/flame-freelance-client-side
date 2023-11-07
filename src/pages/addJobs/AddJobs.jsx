@@ -1,25 +1,46 @@
+import toast, { Toaster } from 'react-hot-toast';
 import useAxios from "../../hooks/useAxios";
+import useAuthContext from '../../hooks/useAuthContext';
+
+
 
 const AddJobs = () => {
-    const handleJobSubmit = (e) =>{
-        e.preventDefault();
-        const form = e.target;
+  const {user} = useAuthContext();
+  const axios = useAxios();
+  const handleJobSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        const newJob = {
-            email : form.email.value,
-            userRoll: 'employer',
-            title: form.title.value,
-            deadline: form.deadline.value,
-            category: form.category.value,
-            min_price: form.min_price.value,
-            max_price: form.max_price.value,
-            description: form.description.value
-        }
-        console.log(newJob);
+    const newJob = {
+      email: form.email.value,
+      userRoll: "employer",
+      title: form.title.value,
+      deadline: form.deadline.value,
+      category: form.category.value,
+      min_price: form.min_price.value,
+      max_price: form.max_price.value,
+      description: form.description.value,
+    };
+    console.log(newJob);
 
-        const axios = useAxios;
+    // fetch('http://localhost:5000/addJob', {
+    //   method: 'POST',
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newJob)
+    // })
+    // .then(res=> res.json())
+    // .then(data=> {
+    //   console.log(data);
+    // })
 
-    }
+    axios.post("/addJob", newJob).then((res) => {
+      console.log(res);
+      toast.success('Successfully added!')
+      form.reset();
+    });
+  };
   return (
     <div className="min-h-screen py-16">
       <div className="md:grid grid-cols-12 px-2 lg:px-32">
@@ -30,8 +51,8 @@ const AddJobs = () => {
           <form onSubmit={handleJobSubmit} className="">
             <div className="form-control my-8">
               <input
-              readOnly
-              defaultValue={'mizan1034@gmail.com'}
+                readOnly
+                defaultValue={user?.email}
                 name="email"
                 type="email"
                 className=" bg-transparent focus:outline-none border-b-2 border-slate-400 border-opacity-40 pb-1 text-white"
@@ -50,8 +71,7 @@ const AddJobs = () => {
             <div className="form-control my-8">
               <input
                 name="deadline"
-                type="text"
-                placeholder="Deadline"
+                type="date"
                 className=" bg-transparent focus:outline-none border-b-2 border-slate-400 border-opacity-40 pb-1 text-white"
                 required
               />
@@ -61,9 +81,11 @@ const AddJobs = () => {
                 name="category"
                 className="bg-transparent focus:outline-none border-b-2 pb-2 border-slate-400 border-opacity-40 w-full text-white"
               >
-                <option selected>Web development</option>
-                <option>Digital marketing</option>
-                <option>Graphics design</option>
+                <option className="bg-[#0b1126]" selected>
+                  Web development
+                </option>
+                <option className="bg-[#0b1126]">Digital marketing</option>
+                <option className="bg-[#0b1126]">Graphics design</option>
               </select>
             </div>
             <div className="my-8 flex gap-10">

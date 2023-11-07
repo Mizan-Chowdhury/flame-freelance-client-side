@@ -7,7 +7,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
       </div>
-      <div className="flex justify-center">
+      <div className="lg:my-32 flex justify-center">
         <Categories></Categories>
       </div>
     </div>
