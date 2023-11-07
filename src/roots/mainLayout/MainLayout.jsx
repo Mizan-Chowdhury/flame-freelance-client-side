@@ -96,9 +96,8 @@ const MainLayout = ({ children }) => {
               {navList}
             </ul>
           </div>
-          <div className="hidden md:block">
             {user && user?.email ? (
-              <div className="dropdown">
+              <div className="dropdown hidden md:block">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-16 rounded-full">
                     <img
@@ -131,7 +130,8 @@ const MainLayout = ({ children }) => {
                 </div>
               </div>
             ) : (
-              <NavLink
+              <div>
+                <NavLink
                 className={
                   "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
                 }
@@ -139,8 +139,8 @@ const MainLayout = ({ children }) => {
               >
                 Login
               </NavLink>
+              </div>
             )}
-          </div>
         </div>
         {/* Page content here */}
         {children}
@@ -153,26 +153,34 @@ const MainLayout = ({ children }) => {
         ></label>
 
         <ul className="menu p-4 w-80 min-h-full text-white bg-[#0b1126]">
-          <div>
-            <img
-              className="rounded-full w-16 h-16 mx-auto"
-              src={user?.photoURL ? user?.photoURL : ""}
-              alt=""
-            />
-            <h1 className="text-white text-xl text-center pt-2 pb-6">
-              {user?.displayName}
-            </h1>
-          </div>
+          {user?.email && (
+            <div>
+              <img
+                className="rounded-full w-16 h-16 mx-auto"
+                src={
+                  user?.photoURL
+                    ? user?.photoURL
+                    : "https://i.ibb.co/xjqfNwn/6596121.png"
+                }
+                alt=""
+              />
+              <h1 className="text-white text-xl text-center pt-2 pb-6">
+                {user?.displayName}
+              </h1>
+            </div>
+          )}
           {/* Sidebar content here */}
           {navList}
           <li>
-          <Link
-            onClick={handleLogOut}
-            className="flex items-center gap-1"
-            to={"/"}
-          >
-            <span>Logout</span>
-          </Link>
+            {user?.email && (
+              <Link
+                onClick={handleLogOut}
+                className="flex items-center gap-1"
+                to={"/"}
+              >
+                <span>Logout</span>
+              </Link>
+            )}
           </li>
         </ul>
       </div>

@@ -21,8 +21,8 @@ const AddJobs = () => {
 
     }
   return (
-    <div className="min-h-screen">
-      <div className="grid grid-cols-12 px-32">
+    <div className="min-h-screen py-16">
+      <div className="md:grid grid-cols-12 px-2 lg:px-32">
         <div className="col-span-4"></div>
         <div className="bg-[#0b1126] col-span-8 p-4 rounded-lg">
           <p>Add New Job</p>
