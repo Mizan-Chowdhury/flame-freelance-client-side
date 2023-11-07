@@ -8,6 +8,7 @@ import Login from "../../pages/login/Login";
 import Register from "../../pages/register/Register";
 import Root from "../../roots/root/Root";
 import JobDetails from "../../components/category/JobDetails";
+import PrivateRouter from "../privateRouter/PrivateRouter";
 
 const MyRouter = createBrowserRouter([
   {
@@ -23,8 +24,8 @@ const MyRouter = createBrowserRouter([
         element: <AddJobs></AddJobs>
       },
       {
-        path: '/postedJobs',
-        element: <MyPostedJobs></MyPostedJobs>
+        path: `/postedJobs`,
+        element: <PrivateRouter><MyPostedJobs></MyPostedJobs></PrivateRouter>,
       },
       {
         path: '/bids',

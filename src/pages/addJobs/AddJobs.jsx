@@ -23,18 +23,6 @@ const AddJobs = () => {
     };
     console.log(newJob);
 
-    // fetch('http://localhost:5000/addJob', {
-    //   method: 'POST',
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newJob)
-    // })
-    // .then(res=> res.json())
-    // .then(data=> {
-    //   console.log(data);
-    // })
-
     axios.post("/addJob", newJob).then((res) => {
       console.log(res);
       toast.success('Successfully added!')

@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
+import useAxios from "../../hooks/useAxios";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
   const job = useLoaderData();
@@ -14,18 +16,26 @@ const JobDetails = () => {
   } = job;
 
   const { user } = useAuthContext();
+  const axios = useAxios();
 
   const handleJobSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const biddedJob = {
+      title,
+      status: 'pending',
       bidding_price: form.biddingPrice.value,
       deadline: form.deadline.value,
       employerEmail: form.employerEmail.value,
       userEmail: form.userEmail.value,
-      userRoll : 'user'
+      userRoll: "user",
     };
-    console.log("hello", biddedJob);
+
+    axios.post("/biddedJob", biddedJob).then((res) => {
+      console.log(res);
+      toast.success("Successfully added!");
+      form.reset();
+    });
   };
 
   return (
@@ -106,7 +116,9 @@ const JobDetails = () => {
               </div>
             </div>
             <input
-              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${userRoll === 'emplyer' && 'btn-disabled'}`}
+              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${
+                userRoll === "employer" && "btn-disabled"
+              }`}
               type="submit"
               value="Place your bid"
             />

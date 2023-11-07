@@ -24,7 +24,7 @@ const MainLayout = ({ children }) => {
       </li>
       <li>
         <NavLink
-          to="/postedJobs"
+          to={`postedJobs`}
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           My Posted Jobs
@@ -96,42 +96,39 @@ const MainLayout = ({ children }) => {
               {navList}
             </ul>
           </div>
-            {user && user?.email ? (
-              <div className="dropdown hidden md:block">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-16 rounded-full">
-                    <img
-                      src={user?.photoURL ? user?.photoURL : avater}
-                      alt=""
-                    />
-                  </div>
-                </label>
-                <div
-                  tabIndex={0}
-                  className="dropdown-content w-60 mt-2 z-[3] -ml-48 border rounded p-6 shadow text-neutral-content bg-black"
-                >
-                  <div>
-                    <img
-                      className="rounded-full w-16 h-16 mx-auto"
-                      src={user?.photoURL ? user?.photoURL : ""}
-                      alt=""
-                    />
-                    <h1 className="text-white text-xl text-center pt-2 pb-6">
-                      {user?.displayName}
-                    </h1>
-                    <Link
-                      onClick={handleLogOut}
-                      className="flex items-center gap-1"
-                      to={"/"}
-                    >
-                      <span>Logout</span>
-                    </Link>
-                  </div>
+          {user && user?.email ? (
+            <div className="dropdown hidden md:block">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-16 rounded-full">
+                  <img src={user?.photoURL ? user?.photoURL : avater} alt="" />
+                </div>
+              </label>
+              <div
+                tabIndex={0}
+                className="dropdown-content w-60 mt-2 z-[3] -ml-48 border rounded p-6 shadow text-neutral-content bg-black"
+              >
+                <div>
+                  <img
+                    className="rounded-full w-16 h-16 mx-auto"
+                    src={user?.photoURL ? user?.photoURL : ""}
+                    alt=""
+                  />
+                  <h1 className="text-white text-xl text-center pt-2 pb-6">
+                    {user?.displayName}
+                  </h1>
+                  <Link
+                    onClick={handleLogOut}
+                    className="flex items-center gap-1"
+                    to={"/"}
+                  >
+                    <span>Logout</span>
+                  </Link>
                 </div>
               </div>
-            ) : (
-              <div>
-                <NavLink
+            </div>
+          ) : (
+            <div>
+              <NavLink
                 className={
                   "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
                 }
@@ -139,8 +136,8 @@ const MainLayout = ({ children }) => {
               >
                 Login
               </NavLink>
-              </div>
-            )}
+            </div>
+          )}
         </div>
         {/* Page content here */}
         {children}

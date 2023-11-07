@@ -30,19 +30,6 @@ const Categories = () => {
   }, [value, axios]);
   return (
     <div className="px-4">
-      {/* <Box>
-        <Tabs
-          className="text-white"
-          value={value}
-          onChange={handleChange}
-          textColor=""
-          indicatorColor="secondary"
-        >
-          <Tab value="Web development" label="Web development" />
-          <Tab value="Digital marketing" label="Digital marketing" />
-          <Tab value="Graphics design" label="Graphics design" />
-        </Tabs>
-      </Box> */}
       <Tabs className="">
         <TabList className="flex gap-5 lg:gap-10 text-white text-2xl">
           {items.map((item) => (
