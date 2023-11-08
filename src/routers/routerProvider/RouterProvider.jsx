@@ -23,41 +23,67 @@ const MyRouter = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/addJob',
-        element: <PrivateRouter><AddJobs></AddJobs></PrivateRouter>
+        path: "/addJob",
+        element: (
+          <PrivateRouter>
+            <AddJobs></AddJobs>
+          </PrivateRouter>
+        ),
       },
       {
         path: `/postedJobs`,
-        element: <PrivateRouter><MyPostedJobs></MyPostedJobs></PrivateRouter>,
+        element: (
+          <PrivateRouter>
+            <MyPostedJobs></MyPostedJobs>
+          </PrivateRouter>
+        ),
       },
       {
         path: `/updatePostedJob/:id`,
         element: <UpdateMyPostedJob></UpdateMyPostedJob>,
-        loader: ({params})=> fetch(`http://localhost:5000/updatePostedJobs/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://flame-freelance-server-side.vercel.app/updatePostedJobs/${params.id}`
+          ),
       },
       {
-        path: '/myBids',
-        element: <PrivateRouter><MyBids></MyBids></PrivateRouter>
+        path: "/myBids",
+        element: (
+          <PrivateRouter>
+            <MyBids></MyBids>
+          </PrivateRouter>
+        ),
       },
       {
-        path: '/bidRequests',
-        element: <PrivateRouter><BidRequests></BidRequests></PrivateRouter>
+        path: "/bidRequests",
+        element: (
+          <PrivateRouter>
+            <BidRequests></BidRequests>
+          </PrivateRouter>
+        ),
       },
       {
         path: `/jobDetails/:id`,
-        element: <PrivateRouter><JobDetails></JobDetails></PrivateRouter>,
-        loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
+        element: (
+          <PrivateRouter>
+            <JobDetails></JobDetails>
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://flame-freelance-server-side.vercel.app/jobDetails/${params.id}`
+          ),
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element: <Register></Register>
-      }
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
-  }
+  },
 ]);
 
 export default MyRouter;

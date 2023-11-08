@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const MyPostedJobsCard = ({ postedJob, mutate }) => {
+const MyPostedJobsCard = ({ postedJob, handleDelete }) => {
   const {
     _id,
     email,
@@ -36,7 +36,7 @@ const MyPostedJobsCard = ({ postedJob, mutate }) => {
             Update
           </button>
         </Link>
-        <button onClick={()=>mutate(_id)} className="btn-sm btn border-none text-white bg-red-800">
+        <button onClick={()=>handleDelete(_id)} className="btn-sm btn border-none text-white bg-red-800">
           Delete
         </button>
       </div>
