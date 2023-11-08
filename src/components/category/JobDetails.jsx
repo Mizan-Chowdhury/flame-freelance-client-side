@@ -1,9 +1,10 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import useAxios from "../../hooks/useAxios";
 import toast from "react-hot-toast";
 
 const JobDetails = () => {
+  const navigate = useNavigate()
   const job = useLoaderData();
   const {
     email,
@@ -35,6 +36,7 @@ const JobDetails = () => {
       console.log(res);
       toast.success("Successfully added!");
       form.reset();
+      navigate('/myBids')
     });
   };
 

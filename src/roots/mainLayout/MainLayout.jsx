@@ -32,7 +32,7 @@ const MainLayout = ({ children }) => {
       </li>
       <li>
         <NavLink
-          to="/bids"
+          to="/myBids"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           My Bids

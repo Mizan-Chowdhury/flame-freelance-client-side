@@ -1,10 +1,12 @@
 import toast, { Toaster } from 'react-hot-toast';
 import useAxios from "../../hooks/useAxios";
 import useAuthContext from '../../hooks/useAuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddJobs = () => {
+  const navigate = useNavigate();
   const {user} = useAuthContext();
   const axios = useAxios();
   const handleJobSubmit = (e) => {
@@ -27,6 +29,7 @@ const AddJobs = () => {
       console.log(res);
       toast.success('Successfully added!')
       form.reset();
+      navigate('/postedJobs')
     });
   };
   return (

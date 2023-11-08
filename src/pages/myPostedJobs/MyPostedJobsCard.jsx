@@ -1,24 +1,15 @@
 import { Link } from "react-router-dom";
-import useAxios from "../../hooks/useAxios";
 
-const MyPostedJobsCard = ({ postedJob }) => {
-  const axios = useAxios();
+const MyPostedJobsCard = ({ postedJob, mutate }) => {
   const {
     _id,
     email,
     title,
     deadline,
-    category,
     max_price,
     min_price,
     description,
   } = postedJob;
-
-  const handleDeleteJob = (id) =>{
-    console.log(id);
-    axios.delete(`/deletePostedJob/${id}`)
-    .then()
-  }
 
   return (
     <div className="bg-[#0b1126] p-8 rounded-lg shadow-sm space-y-2">
@@ -45,7 +36,7 @@ const MyPostedJobsCard = ({ postedJob }) => {
             Update
           </button>
         </Link>
-        <button onClick={()=>handleDeleteJob(_id)} className="btn-sm btn border-none text-white bg-red-800">
+        <button onClick={()=>mutate(_id)} className="btn-sm btn border-none text-white bg-red-800">
           Delete
         </button>
       </div>
