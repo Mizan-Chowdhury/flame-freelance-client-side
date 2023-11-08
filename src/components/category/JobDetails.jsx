@@ -116,9 +116,7 @@ const JobDetails = () => {
               </div>
             </div>
             <input
-              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${
-                userRoll === "employer" && "btn-disabled"
-              }`}
+              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${user && userRoll === "employer" ? "btn-disabled" : ''}`}
               type="submit"
               value="Place your bid"
             />
