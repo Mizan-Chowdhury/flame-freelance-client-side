@@ -1,5 +1,5 @@
-const MyBidsTable = ({ bidJobs }) => {
-  const { userEmail, title, deadline, status } = bidJobs;
+const MyBidsTable = ({ bidJobs, handleStatus }) => {
+  const {_id, userEmail, title, deadline, status } = bidJobs;
   return (
     <div>
       <div className="card bg-[#0b1126] shadow-xl md:h-60">
@@ -11,7 +11,9 @@ const MyBidsTable = ({ bidJobs }) => {
           </div>
           <div className="card-actions items-center">
             <p>Status: {status}</p>
-            <button className="btn btn-sm">Complete</button>
+            {status === "Progress" && (
+              <button onClick={()=> handleStatus(_id, "Complete")} className="btn btn-sm">Complete</button>
+            )}
           </div>
         </div>
       </div>

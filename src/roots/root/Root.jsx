@@ -3,7 +3,7 @@ import MainLayout from "../mainLayout/MainLayout";
 
 const Root = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             <MainLayout>
                 <Outlet></Outlet>
             </MainLayout>

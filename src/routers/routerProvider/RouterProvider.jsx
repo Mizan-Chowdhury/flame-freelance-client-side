@@ -39,7 +39,7 @@ const MyRouter = createBrowserRouter([
       },
       {
         path: '/bidRequests',
-        element: <BidRequests></BidRequests>
+        element: <PrivateRouter><BidRequests></BidRequests></PrivateRouter>
       },
       {
         path: `/jobDetails/:id`,
