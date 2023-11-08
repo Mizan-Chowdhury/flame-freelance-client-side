@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {googleSingIn, signInUser} = useAuthContext();
+  const navigate = useNavigate();
 
 
 
@@ -18,6 +20,8 @@ const Login = () => {
     .then(res=>{
       console.log(res.user)
       form.reset()
+      toast.success('You have successfully loged!')
+      navigate('/')
     })
     .catch(err=>{
       console.log(err);
@@ -29,6 +33,8 @@ const Login = () => {
     googleSingIn()
     .then(res=>{
       console.log(res)
+      toast.success('You have successfully loged!')
+      navigate('/')
     })
     .catch(err=>{
       console.log(err);

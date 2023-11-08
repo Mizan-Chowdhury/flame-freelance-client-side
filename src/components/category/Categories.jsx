@@ -10,7 +10,7 @@ const Categories = () => {
 
   const items = ["Web development", "Digital marketing", "Graphics design"];
 
-  const handleChange = (newValue, index) => {
+  const handleChange = (newValue) => {
     // setValue(newValue);
     console.log(newValue);
     setValue(newValue);
@@ -31,7 +31,7 @@ const Categories = () => {
   return (
     <div className="px-4">
       <Tabs className="">
-        <TabList className="flex gap-5 lg:gap-10 text-white text-2xl">
+        <TabList className="flex gap-5 lg:gap-10 text-white lg:text-2xl">
           {items.map((item) => (
             <Tab
               className={item === value ? "active-tabs" : ""}

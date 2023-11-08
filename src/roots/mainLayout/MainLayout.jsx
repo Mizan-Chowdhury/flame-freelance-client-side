@@ -127,7 +127,7 @@ const MainLayout = ({ children }) => {
               </div>
             </div>
           ) : (
-            <div>
+            <div className="hidden md:block">
               <NavLink
                 className={
                   "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
@@ -169,7 +169,7 @@ const MainLayout = ({ children }) => {
           {/* Sidebar content here */}
           {navList}
           <li>
-            {user?.email && (
+            {user?.email ? (
               <Link
                 onClick={handleLogOut}
                 className="flex items-center gap-1"
@@ -177,6 +177,15 @@ const MainLayout = ({ children }) => {
               >
                 <span>Logout</span>
               </Link>
+            ) : (
+              <NavLink
+                className={
+                  "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
+                }
+                to={"/login"}
+              >
+                Login
+              </NavLink>
             )}
           </li>
         </ul>

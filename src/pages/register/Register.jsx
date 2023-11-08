@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, updateUser } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -18,6 +20,8 @@ const Register = () => {
         updateUser(name, photo)
           .then((res) => {
             console.log(res);
+            toast.success("You have successfully registered!");
+            navigate("/");
             form.reset();
           })
           .catch((err) => {
