@@ -24,7 +24,7 @@ const MyRouter = createBrowserRouter([
       },
       {
         path: '/addJob',
-        element: <AddJobs></AddJobs>
+        element: <PrivateRouter><AddJobs></AddJobs></PrivateRouter>
       },
       {
         path: `/postedJobs`,
@@ -45,18 +45,18 @@ const MyRouter = createBrowserRouter([
       },
       {
         path: `/jobDetails/:id`,
-        element: <JobDetails></JobDetails>,
+        element: <PrivateRouter><JobDetails></JobDetails></PrivateRouter>,
         loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       }
     ],
-  },
-  {
-    path: '/login',
-    element: <Login></Login>
-  },
-  {
-    path: '/register',
-    element: <Register></Register>
   }
 ]);
 

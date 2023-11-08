@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 const Register = () => {
   const { createUser, updateUser } = useAuthContext();
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleForm = (e) => {
@@ -14,24 +16,34 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    createUser(email, password)
-      .then((res) => {
-        console.log(res);
-        updateUser(name, photo)
-          .then((res) => {
-            console.log(res);
-            toast.success("You have successfully registered!");
-            navigate("/");
-            form.reset();
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
+      setError(
+        "Error: Your password needs to be longer and contain a capital letter and special character."
+      );
+    } else {
+      createUser(email, password)
+        .then((res) => {
+          console.log(res);
+          updateUser(name, photo)
+            .then((res) => {
+              console.log(res);
+              toast.success("You have successfully registered!");
+              setError('')
+              navigate("/");
+              form.reset();
+            })
+            .catch((err) => {
+              console.log(err);
+              setError(err.message)
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(err.message)
+        });
+    }
   };
+
   return (
     <div className="flex items-center min-h-screen py-16 px-4 lg:px-32">
       <div className="flex flex-col lg:flex-row items-center lg:gap-32">
@@ -100,7 +112,8 @@ const Register = () => {
               />
             </div>
           </form>
-          <p className="text-center mt-4">
+          <p className="text-red-600 mt-4">{error}</p>
+          <p className="text-center">
             Already have an acount? please{" "}
             <Link to={"/login"} className="font-semibold underline">
               Login

@@ -1,10 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 const Login = () => {
   const {googleSingIn, signInUser} = useAuthContext();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [error, setError] = useState("");
+
 
 
 
@@ -21,10 +25,12 @@ const Login = () => {
       console.log(res.user)
       form.reset()
       toast.success('You have successfully loged!')
-      navigate('/')
+      setError("");
+      navigate(location?.state ? location.state : '/')
     })
     .catch(err=>{
       console.log(err);
+      setError(err.message);
     })
 
   };
@@ -34,7 +40,7 @@ const Login = () => {
     .then(res=>{
       console.log(res)
       toast.success('You have successfully loged!')
-      navigate('/')
+      navigate(location?.state ? location.state : '/')
     })
     .catch(err=>{
       console.log(err);
@@ -95,7 +101,8 @@ const Login = () => {
               value="Login With Google"
             />
           </div>
-          <p className="text-center mt-4">
+          <p className="text-red-600 mt-4">{error}</p>
+          <p className="text-center">
             Did not have a account? please{" "}
             <Link to={"/register"} className="underline font-semibold">
               Register
