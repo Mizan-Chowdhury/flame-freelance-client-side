@@ -9,10 +9,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../../firebase.config";
+import useAxios from "../../hooks/useAxios";
 const provider = new GoogleAuthProvider();
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const axios = useAxios();
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
 
@@ -44,11 +46,17 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoader(false);
+      if (currentUser) {
+        axios.post('/jwt',{user : currentUser?.email})
+        .then(res=>{
+          console.log(res.data);
+        })
+      }
     });
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [axios]);
 
   const authInfo = {
     loader,

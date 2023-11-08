@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "image": "https://i.ibb.co/zNFZgzK/author.jpg",
+    "name": "Mark Jordan",
+    "price": 2.8,
+    "rating": 4.4
+  },
+  {
+    "id": "2",
+    "image": "https://i.ibb.co/fX1L4Yz/pro4.webp",
+    "name": "YASHKIB",
+    "price": 2.5,
+    "rating": 4.3
+  },
+  {
+    "id": "3",
+    "image": "https://i.ibb.co/8MqvQQs/pro1.webp",
+    "name": "Methods",
+    "price": 5.5,
+    "rating": 4.5
+  },
+  {
+    "id": "4",
+    "image": "https://i.ibb.co/5k7Dp4X/pro3.webp",
+    "name": "Jone sone",
+    "price": 6.55,
+    "rating": 4.9
+  },
+  {
+    "id": "5",
+    "image": "https://i.ibb.co/3WcxNGM/man-4.jpg",
+    "name": "Yash",
+    "price": 2.33,
+    "rating": 4.5
+  },
+  {
+    "id": "6",
+    "image": "https://i.ibb.co/7S98x87/man-1.jpg",
+    "name": "Brodband",
+    "price": 4.55,
+    "rating": 4.7
+  },
+  {
+    "id": "7",
+    "image": "https://i.ibb.co/k21P9WM/man-2.jpg",
+    "name": "Siddhart",
+    "price": 4.55,
+    "rating": 4.7
+  },
+  {
+    "id": "8",
+    "image": "https://i.ibb.co/K7SXm7n/girl-3.jpg",
+    "name": "Ms. Parkline",
+    "price": 5.55,
+    "rating": 4.8
+  }
+]

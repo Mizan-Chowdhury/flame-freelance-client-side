@@ -4,6 +4,7 @@ import useAxios from "../../hooks/useAxios";
 import { useLoaderData } from "react-router-dom";
 import MyPostedJobsCard from "./MyPostedJobsCard";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const MyPostedJobs = () => {
   const { user } = useAuthContext();
@@ -38,6 +39,11 @@ const MyPostedJobs = () => {
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-2 lg:px-32 my-20">
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | My Posted Job</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {data?.data.map((postedJob) => (
         <div className="" key={postedJob._id}>
           <MyPostedJobsCard

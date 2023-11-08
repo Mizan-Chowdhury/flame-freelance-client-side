@@ -3,6 +3,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 import useAxios from "../../hooks/useAxios";
 import BidRequestsCard from "./BidRequestsCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const BidRequests = () => {
   const { user } = useAuthContext();
@@ -31,6 +32,11 @@ const BidRequests = () => {
 
   return (
     <div>
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | Bid Requests</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 px-4 md:px-20">
         {bidReqData?.map((BidRequests) => (
           <div key={BidRequests._id}>

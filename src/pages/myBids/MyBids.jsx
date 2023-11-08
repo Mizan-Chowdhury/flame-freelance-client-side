@@ -3,6 +3,7 @@ import useAxios from "../../hooks/useAxios";
 import useAuthContext from "../../hooks/useAuthContext";
 import MyBidsTable from "./MyBidsTable";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const MyBids = () => {
   const { user } = useAuthContext();
@@ -31,6 +32,11 @@ const MyBids = () => {
 
   return (
     <div className="py-10">
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | My Bids</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <h1 className="text-center text-3xl font-bold banner-title mb-10">
         Your Bidder Jobs
       </h1>

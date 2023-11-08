@@ -2,6 +2,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import useAxios from "../../hooks/useAxios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const JobDetails = () => {
   const navigate = useNavigate();
@@ -40,6 +41,11 @@ const JobDetails = () => {
 
   return (
     <div className="min-h-screen py-16 px-2 lg:px-32">
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | Job Details </title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="bg-[#0b1126] shadow-2xl rounded-lg p-8">
         <div>
           <div className="space-y-2 md:flex items-center gap-10">

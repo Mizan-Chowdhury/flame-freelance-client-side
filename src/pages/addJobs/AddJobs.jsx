@@ -2,6 +2,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import useAxios from "../../hooks/useAxios";
 import useAuthContext from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -34,6 +35,11 @@ const AddJobs = () => {
   };
   return (
     <div className="min-h-screen py-16">
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | Add job</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="md:grid grid-cols-12 px-2 lg:px-32">
         <div className="col-span-4"></div>
         <div className="bg-[#0b1126] col-span-8 p-4 rounded-lg">

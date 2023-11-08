@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, updateUser } = useAuthContext();
@@ -46,6 +47,11 @@ const Register = () => {
 
   return (
     <div className="flex items-center min-h-screen py-16 px-4 lg:px-32">
+      <Helmet>
+      <meta charSet="utf-8" />
+                <title>Flame Frelance | Register</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="flex flex-col lg:flex-row items-center lg:gap-32">
         <div className="text-center lg:text-left flex-1">
           <h1 className="text-5xl font-bold">
