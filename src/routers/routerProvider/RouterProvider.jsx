@@ -10,11 +10,13 @@ import Root from "../../roots/root/Root";
 import JobDetails from "../../components/category/JobDetails";
 import PrivateRouter from "../privateRouter/PrivateRouter";
 import UpdateMyPostedJob from "../../pages/myPostedJobs/UpdateMyPostedJob";
+import Error from "../../components/error404/Error";
 
 const MyRouter = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
