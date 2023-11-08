@@ -4,18 +4,16 @@ import useAxios from "../../hooks/useAxios";
 import toast from "react-hot-toast";
 
 const JobDetails = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const job = useLoaderData();
   const {
     email,
-    userRoll,
     title,
     deadline,
     max_price,
     min_price,
     description,
   } = job;
-
   const { user } = useAuthContext();
   const axios = useAxios();
 
@@ -24,7 +22,7 @@ const JobDetails = () => {
     const form = e.target;
     const biddedJob = {
       title,
-      status: 'pending',
+      status: "Pending",
       bidding_price: form.biddingPrice.value,
       deadline: form.deadline.value,
       employerEmail: form.employerEmail.value,
@@ -36,7 +34,7 @@ const JobDetails = () => {
       console.log(res);
       toast.success("Successfully added!");
       form.reset();
-      navigate('/myBids')
+      navigate("/myBids");
     });
   };
 
@@ -118,7 +116,9 @@ const JobDetails = () => {
               </div>
             </div>
             <input
-              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${user && userRoll === "employer" ? "btn-disabled" : ''}`}
+              className={`btn border-none px-10 text-[#ffff] font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ${
+                user?.email === email ? "btn-disabled" : ""
+              }`}
               type="submit"
               value="Place your bid"
             />
