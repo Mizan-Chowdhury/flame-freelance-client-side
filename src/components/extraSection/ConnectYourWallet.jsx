@@ -4,7 +4,7 @@ const ConnectYourWallet = () => {
     const [author, setAuthor] = useState();
 
   useEffect(() => {
-    fetch("/public/seller.json")
+    fetch("/seller.json")
       .then((res) => res.json())
       .then((data) => {
         setAuthor(data);

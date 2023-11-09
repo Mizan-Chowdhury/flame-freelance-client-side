@@ -4,7 +4,7 @@ const TopSeller = () => {
   const [seller, setSeller] = useState();
 
   useEffect(() => {
-    fetch("/public/seller.json")
+    fetch("/seller.json")
       .then((res) => res.json())
       .then((data) => {
         setSeller(data);
