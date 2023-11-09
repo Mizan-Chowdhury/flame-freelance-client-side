@@ -11,12 +11,10 @@ const Categories = () => {
   const items = ["Web development", "Digital marketing", "Graphics design"];
 
   const handleChange = (newValue) => {
-    // setValue(newValue);
     console.log(newValue);
     setValue(newValue);
   };
   const axios = useAxios();
-  // const queryClient = useQueryClient()
 
   useEffect(() => {
     axios

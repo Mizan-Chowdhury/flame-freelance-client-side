@@ -11,7 +11,7 @@ const BidRequests = () => {
   const axios = useAxios();
 
   useEffect(()=>{
-    axios.get(`/biddJobRequests/${user?.email}`).then((res) => {
+    axios.get(`/biddJobRequests/${user?.email}`, {withCredentials:true}).then((res) => {
         console.log(res.data);
         setBidReqData(res.data);
       });
