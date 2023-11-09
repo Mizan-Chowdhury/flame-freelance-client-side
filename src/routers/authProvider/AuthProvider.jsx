@@ -8,8 +8,8 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../../../firebase.config";
 import useAxios from "../../hooks/useAxios";
+import { auth } from "../../config/firebase.config";
 const provider = new GoogleAuthProvider();
 export const AuthContext = createContext();
 
