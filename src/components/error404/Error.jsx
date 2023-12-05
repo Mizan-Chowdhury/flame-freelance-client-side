@@ -2,11 +2,6 @@ import { Link, useRouteError } from "react-router-dom";
 const Error = () => {
   const error = useRouteError();
   return (
-    // <div className="flex flex-col items-center justify-center h-screen space-y-3">
-    //   <h1 className="text-6xl font-bold"></h1>
-    //   <p className="text-xl"></p>
-    //
-    // </div>
     <div
       className="hero min-h-screen"
       style={{

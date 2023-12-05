@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "assigments-de09b"
-  }
+  },
+  "targets": {
+    "assigments-de09b": {
+      "hosting": {
+        "flamefrelacne": [
+          "flamefrelacne"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

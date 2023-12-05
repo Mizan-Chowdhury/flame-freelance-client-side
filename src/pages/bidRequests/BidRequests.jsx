@@ -1,10 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
 import useAuthContext from "../../hooks/useAuthContext";
 import useAxios from "../../hooks/useAxios";
 import BidRequestsCard from "./BidRequestsCard";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { key } from "localforage";
 
 const BidRequests = () => {
   const { user } = useAuthContext();
