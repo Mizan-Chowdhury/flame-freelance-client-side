@@ -27,9 +27,9 @@ const Categories = () => {
       });
   }, [value, axios]);
   return (
-    <div className="px-4">
+    <div className="px-2">
       <Tabs className="">
-        <TabList className="flex gap-5 lg:gap-10 text-white lg:text-2xl">
+        <TabList className="flex gap-5 md:gap-10 text-white lg:text-2xl justify-center mb-10">
           {items.map((item) => (
             <Tab
               className={item === value ? "active-tabs" : ""}
@@ -41,9 +41,14 @@ const Categories = () => {
           ))}
         </TabList>
         {items.map((item) => (
-          <TabPanel className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"} key={item}>
+          <TabPanel
+            className={
+              "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
+            }
+            key={item}
+          >
             {allJobs?.map((job) => (
-              <div className="py-10" key={job?._id}>
+              <div key={job?._id}>
                 <CategoriesCard job={job}></CategoriesCard>
               </div>
             ))}

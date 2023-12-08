@@ -16,7 +16,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
       </div>
-      <div className="lg:my-32 flex justify-center">
+      <div className="lg:my-32">
         <Categories></Categories>
       </div>
       <div>

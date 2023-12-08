@@ -37,7 +37,7 @@ const MyBids = () => {
   };
 
   return (
-    <div className="py-10 px-4 md:px-20">
+    <div className="py-10 px-4">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Flame Frelance | My Bids</title>
@@ -56,7 +56,7 @@ const MyBids = () => {
           <option value={""}>Normal</option>
         </select>
       </div>
-      <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 md:hidden">
+      {/* <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 md:hidden">
         {bidReqData?.map((bidJobs) => (
           <div key={bidJobs._id}>
             <div>
@@ -83,8 +83,8 @@ const MyBids = () => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="overflow-x-auto px-10 hidden md:block">
+      </div> */}
+      <div className="overflow-x-auto hidden">
         <table className="table text-white">
           {/* head */}
           <thead className="text-white text-xl">
@@ -104,16 +104,14 @@ const MyBids = () => {
                 <td>{bidRequests.deadline}</td>
                 <td>{bidRequests.status}</td>
                 {bidRequests.status === "Progress" && (
-                  <div>
-                    <th>
-                      <button
-                        onClick={() => handleStatus(bidRequests._id, 'Complete')}
-                        className="btn btn-xs"
-                      >
-                        Complete
-                      </button>
-                    </th>
-                  </div>
+                  <th>
+                    <button
+                      onClick={() => handleStatus(bidRequests._id, "Complete")}
+                      className="btn btn-xs"
+                    >
+                      Complete
+                    </button>
+                  </th>
                 )}
               </tr>
             ))}

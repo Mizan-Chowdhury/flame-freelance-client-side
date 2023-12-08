@@ -42,9 +42,7 @@ const MyRouter = createBrowserRouter([
         path: `/updatePostedJob/:id`,
         element: <UpdateMyPostedJob></UpdateMyPostedJob>,
         loader: ({ params }) =>
-          fetch(
-            `https://flame-freelance-server-side.vercel.app/updatePostedJobs/${params.id}`
-          ),
+          fetch(`http://localhost:5000/updatePostedJobs/${params.id}`),
       },
       {
         path: "/myBids",
@@ -70,9 +68,7 @@ const MyRouter = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://flame-freelance-server-side.vercel.app/jobDetails/${params.id}`
-          ),
+          fetch(`http://localhost:5000/jobDetails/${params.id}`),
       },
       {
         path: "/login",

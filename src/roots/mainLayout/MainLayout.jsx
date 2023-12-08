@@ -60,7 +60,7 @@ const MainLayout = ({ children }) => {
   };
 
   return (
-    <div className="drawer">
+    <div className="drawer max-w-screen-2xl mx-auto">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
@@ -86,10 +86,12 @@ const MainLayout = ({ children }) => {
               </svg>
             </label>
           </div>
-          <div className=" logo">
-            <BsFire className="text-3xl"></BsFire>
-            <h1 className="font-bold text-3xl">FlameFrelance</h1>
-          </div>
+          <Link to={'/'}>
+            <div className="logo flex items-center">
+              <BsFire className="text-3xl text-slate-300"></BsFire>
+              <h1 className="font-bold text-3xl">FlameFrelance</h1>
+            </div>
+          </Link>
           <div className=" hidden lg:block">
             <ul className="menu-horizontal gap-5 text-[#fff]">
               {/* Navbar menu content here */}
@@ -128,14 +130,14 @@ const MainLayout = ({ children }) => {
             </div>
           ) : (
             <div className="hidden md:block">
-              <NavLink
+              <Link
                 className={
                   "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
                 }
                 to={"/login"}
               >
                 Login
-              </NavLink>
+              </Link>
             </div>
           )}
         </div>
@@ -178,14 +180,14 @@ const MainLayout = ({ children }) => {
                 <span>Logout</span>
               </Link>
             ) : (
-              <NavLink
+              <Link
                 className={
                   "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
                 }
                 to={"/login"}
               >
                 Login
-              </NavLink>
+              </Link>
             )}
           </li>
         </ul>
