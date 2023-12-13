@@ -1,14 +1,14 @@
-import toast, { Toaster } from 'react-hot-toast';
+import toast from "react-hot-toast";
 import useAxios from "../../hooks/useAxios";
-import useAuthContext from '../../hooks/useAuthContext';
-import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-
-
+import useAuthContext from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { IoIosSend } from "react-icons/io";
+import { FaPhone, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const AddJobs = () => {
   const navigate = useNavigate();
-  const {user} = useAuthContext();
+  const { user } = useAuthContext();
   const axios = useAxios();
   const handleJobSubmit = (e) => {
     e.preventDefault();
@@ -28,20 +28,70 @@ const AddJobs = () => {
 
     axios.post("/addJob", newJob).then((res) => {
       console.log(res);
-      toast.success('Successfully added!')
+      toast.success("Successfully added!");
       form.reset();
-      navigate('/postedJobs')
+      navigate("/postedJobs");
     });
   };
   return (
     <div className="min-h-screen py-16">
       <Helmet>
-      <meta charSet="utf-8" />
-                <title>Flame Frelance | Add job</title>
-                <link rel="canonical" href="http://mysite.com/example" />
+        <meta charSet="utf-8" />
+        <title>Flame Frelance | Add job</title>
+        <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="md:grid grid-cols-12 px-2 lg:px-32">
-        <div className="col-span-4"></div>
+      <div className="md:grid grid-cols-12 gap-5 px-2 lg:px-32">
+        <div className="col-span-4 mb-10 md:mb-0">
+          <div className="bg-[#0b1126] rounded-lg">
+            <img
+              className="rounded-t-lg"
+              src="https://i.ibb.co/jRyvRHW/Mizan-Chowdhury-1.png"
+              alt=""
+            />
+            <div className="text-center p-4">
+              <h1 className="text-3xl">Mizan Chowdhury</h1>
+              <p>MERN Stack Developer</p>
+              <p className="text-sm text-slate-400 mt-3">
+                I am a motivated and dedicated MERN Stack Developer with
+                knowledge both front-end and back-end. Looking for a
+                professional role to start my career as a Web Developer where I
+                will be able to share my acquired knowledge and gain more.
+              </p>
+              <div className="col-span-1 mt-4">
+                <h1 className="text-2xl font-semibold">
+                  Contact <span className="text-[#7063F2]">Me!</span>
+                </h1>
+                <div className="flex items-center gap-1">
+                  <IoIosSend className="text-2xl text-[#7063F2]" />
+                  <p>mizanchowdhury.519@gmail.com</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaPhone className="text-[#7063F2]" />
+                  <p>+880 17750 36519</p>
+                </div>
+                <div className="flex justify-center mt-2 gap-4 icons">
+                  <a
+                    href="https://www.facebook.com/Mizan1034"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaFacebook className="text-3xl hover:-mt-1 hover:text-[#7063F2] transition" />
+                  </a>
+                  <a
+                    href="https://github.com/Mizan-Chowdhury"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub className="text-3xl hover:-mt-1 hover:text-[#7063F2] transition" />
+                  </a>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin className="text-3xl hover:-mt-1 hover:text-[#7063F2] transition" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="bg-[#0b1126] col-span-8 p-4 rounded-lg">
           <p>Add New Job</p>
           <h1 className="text-3xl">Create Job</h1>

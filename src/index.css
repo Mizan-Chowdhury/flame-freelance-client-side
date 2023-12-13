@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: transparent;
+}
+
 body {
-  background-color: #03091f !important;
+  background: #03091f;
+  color: #fff;
 }
 
 h1,

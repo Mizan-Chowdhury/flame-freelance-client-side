@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { BsFire } from "react-icons/bs";
 import useAuthContext from "../../hooks/useAuthContext";
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   const { user, logOutUser } = useAuthContext();
   const navList = (
     <>
@@ -60,43 +60,17 @@ const MainLayout = ({ children }) => {
   };
 
   return (
-    <div className="drawer max-w-screen-2xl mx-auto">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+    <div className="drawer items-center z-[3] max-w-screen-2xl mx-auto">
       <div className="drawer-content flex flex-col">
-        {/* Navbar */}
-        <div className="w-full navbar justify-between">
-          <div className="flex-none lg:hidden">
-            <label
-              htmlFor="my-drawer-3"
-              aria-label="open sidebar"
-              className="btn btn-square btn-ghost text-slate-500"
-            >
-              <svg
-                xmlns=""
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
-          </div>
-          <Link to={'/'}>
+        <div className="lg:px-16 navbar items-center justify-between">
+          <Link to={"/"}>
             <div className="logo flex items-center">
               <BsFire className="text-3xl text-slate-300"></BsFire>
               <h1 className="font-bold text-3xl">FlameFrelance</h1>
             </div>
           </Link>
           <div className=" hidden lg:block">
-            <ul className="menu-horizontal gap-5 text-[#fff]">
-              {/* Navbar menu content here */}
-              {navList}
-            </ul>
+            <ul className="menu-horizontal gap-5 text-[#fff]">{navList}</ul>
           </div>
           {user && user?.email ? (
             <div className="dropdown hidden md:block">
@@ -141,56 +115,56 @@ const MainLayout = ({ children }) => {
             </div>
           )}
         </div>
-        {/* Page content here */}
-        {children}
       </div>
-      <div className="drawer-side">
-        <label
-          htmlFor="my-drawer-3"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
 
-        <ul className="menu p-4 w-80 min-h-full text-white bg-[#0b1126]">
-          {user?.email && (
-            <div>
-              <img
-                className="rounded-full w-16 h-16 mx-auto"
-                src={
-                  user?.photoURL
-                    ? user?.photoURL
-                    : "https://i.ibb.co/xjqfNwn/6596121.png"
-                }
-                alt=""
-              />
-              <h1 className="text-white text-xl text-center pt-2 pb-6">
-                {user?.displayName}
-              </h1>
-            </div>
-          )}
-          {/* Sidebar content here */}
-          {navList}
-          <li>
-            {user?.email ? (
-              <Link
-                onClick={handleLogOut}
-                className="flex items-center gap-1"
-                to={"/"}
-              >
-                <span>Logout</span>
-              </Link>
-            ) : (
-              <Link
-                className={
-                  "py-2 px-4 text-white font-bold bg-slate-200 bg-opacity-20"
-                }
-                to={"/login"}
-              >
-                Login
-              </Link>
-            )}
-          </li>
-        </ul>
+      <div className="drawer md:hidden">
+        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content">
+          {/* Page content here */}
+          <label
+            htmlFor="my-drawer-4"
+            className="btn btn-square btn-ghost text-slate-500"
+          >
+            <svg
+              xmlns=""
+              fill="none"
+              viewBox="0 0 24 24"
+              className="inline-block w-6 h-6 stroke-current"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </label>
+        </div>
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-4"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <div className="p-4 w-80 min-h-full bg-[#1D1D1D] bg-opacity-10 backdrop-blur-md text-white font-semibold">
+            <img
+              className="rounded-full w-16 h-16 mx-auto"
+              src={user?.photoURL ? user?.photoURL : ""}
+              alt=""
+            />
+            <h1 className="text-white text-xl text-center pt-2 pb-6">
+              {user?.displayName}
+            </h1>
+            <ul className="menu menu-md">
+              {navList}
+              <li>
+                <Link onClick={handleLogOut} to={"/"}>
+                  <span>Logout</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

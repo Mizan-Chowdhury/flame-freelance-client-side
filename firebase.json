@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target":"flamefrelacne",
+    "site":"flamefrelacne",
     "public": "dist",
     "ignore": [
       "firebase.json",

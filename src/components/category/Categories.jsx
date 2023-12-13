@@ -27,7 +27,7 @@ const Categories = () => {
       });
   }, [value, axios]);
   return (
-    <div className="px-2">
+    <div className="px-2 lg:px-20">
       <Tabs className="">
         <TabList className="flex gap-5 md:gap-10 text-white lg:text-2xl justify-center mb-10">
           {items.map((item) => (
@@ -42,9 +42,7 @@ const Categories = () => {
         </TabList>
         {items.map((item) => (
           <TabPanel
-            className={
-              "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
-            }
+            className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"}
             key={item}
           >
             {allJobs?.map((job) => (
@@ -54,14 +52,6 @@ const Categories = () => {
             ))}
           </TabPanel>
         ))}
-
-        {/* <TabPanel>
-          {allJobs?.map((job) => (
-            <CategoriesCard key={job._id} job={job}></CategoriesCard>
-          ))}
-        </TabPanel> */}
-
-        {/* <TabPanel value=''>{data?.data}</TabPanel> */}
       </Tabs>
     </div>
   );

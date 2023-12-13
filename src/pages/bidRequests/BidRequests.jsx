@@ -1,6 +1,5 @@
 import useAuthContext from "../../hooks/useAuthContext";
 import useAxios from "../../hooks/useAxios";
-import BidRequestsCard from "./BidRequestsCard";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
@@ -32,23 +31,13 @@ const BidRequests = () => {
   };
 
   return (
-    <div>
+    <div className="py-10">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Flame Frelance | Bid Requests</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 px-4 md:px-20 md:hidden">
-        {bidReqData?.map((bidRequests) => (
-          <div key={bidRequests._id}>
-            <BidRequestsCard
-              handleStatus={handleStatus}
-              bidRequests={bidRequests}
-            ></BidRequestsCard>
-          </div>
-        ))}
-      </div>
-      <div className="overflow-x-auto px-10 hidden md:block">
+      <div className="overflow-x-auto px-10">
         <table className="table text-white">
           {/* head */}
           <thead className="text-white text-xl">
@@ -101,12 +90,5 @@ const BidRequests = () => {
     </div>
   );
 };
-
-{
-  /* <BidRequestsCard
-handleStatus={handleStatus}
-BidRequests={BidRequests}
-></BidRequestsCard> */
-}
 
 export default BidRequests;
